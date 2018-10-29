@@ -127,6 +127,27 @@ cdef class SerializationContext:
             self.custom_serializers[type_id] = custom_serializer
             self.custom_deserializers[type_id] = custom_deserializer
 
+    def _type_to_type_id(self):
+        return self.type_to_type_id
+
+    def _whitelisted_types(self):
+        return self.whitelisted_types
+
+    def _types_to_pickle(self):
+        return self.types_to_pickle
+
+    def _custom_serializers(self):
+        return self.custom_serializers
+
+    def _custom_deserializers(self):
+        return self.custom_deserializers
+
+    def _pickle_serializer(self):
+        return self.pickle_serializer
+
+    def _pickle_deserializer(self):
+        return self.pickle_deserializer
+
     def _serialize_callback(self, obj):
         found = False
         for type_ in type(obj).__mro__:
